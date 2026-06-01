@@ -9,6 +9,9 @@ public:
 
     int getArity() const override;
     virtual double calculate(double value) const = 0;
+
+protected:
+    double degreesToRadians(double degrees) const;
 };
 
 #endif // UNARYOPERATION_H

@@ -8,11 +8,12 @@ TgOperation::TgOperation()
 }
 
 double TgOperation::calculate(double value) const {
-    double cosValue = std::cos(value);
+    double radians = degreesToRadians(value);
+    double cosValue = std::cos(radians);
 
     if (std::abs(cosValue) < eps) {
         throw std::runtime_error("Tangent is undefined");
     }
 
-    return std::tan(value);
+    return std::tan(radians);
 }

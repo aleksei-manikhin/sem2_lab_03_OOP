@@ -7,5 +7,5 @@ CosOperation::CosOperation()
 }
 
 double CosOperation::calculate(double value) const {
-    return std::cos(value);
+    return std::cos(degreesToRadians(value));
 }

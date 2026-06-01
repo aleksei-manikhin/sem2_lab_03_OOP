@@ -1,7 +1,7 @@
 #ifndef TOKENIZER_H
 #define TOKENIZER_H
 
-#include "operationRegistry.h"
+#include "operations/operationRegistry.h"
 #include "token.h"
 
 #include <cstddef>

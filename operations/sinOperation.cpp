@@ -7,5 +7,5 @@ SinOperation::SinOperation()
 }
 
 double SinOperation::calculate(double value) const {
-    return std::sin(value);
+    return std::sin(degreesToRadians(value));
 }

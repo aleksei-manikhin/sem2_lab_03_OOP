@@ -8,11 +8,12 @@ CtgOperation::CtgOperation()
 }
 
 double CtgOperation::calculate(double value) const {
-    double sinValue = std::sin(value);
+    double radians = degreesToRadians(value);
+    double sinValue = std::sin(radians);
 
     if (std::abs(sinValue) < eps) {
         throw std::runtime_error("Cotangent is undefined");
     }
 
-    return std::cos(value) / sinValue;
+    return std::cos(radians) / sinValue;
 }
