@@ -6,18 +6,150 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>390</width>
-    <height>640</height>
+    <width>360</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>390</width>
-    <height>600</height>
+    <width>340</width>
+    <height>560</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Calculator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background: #f5f7fb;
+}
+
+QWidget#centralwidget {
+    background: #f5f7fb;
+}
+
+QFrame#calculatorFrame {
+    background: #fbfcff;
+    border: 1px solid #dde3ee;
+    border-radius: 18px;
+}
+
+QFrame#displayFrame {
+    background: #f8faff;
+    border: 1px solid #dfe5ef;
+    border-radius: 12px;
+}
+
+QFrame#displayFrame[error=&quot;true&quot;] {
+    background: #fff0f0;
+    border: 1px solid #ff9b9b;
+}
+
+QLabel#degreeLabel {
+    color: #707a92;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+QLineEdit#displayLine {
+    background: transparent;
+    border: none;
+    color: #080d18;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 0 4px;
+    selection-background-color: transparent;
+}
+
+QLineEdit#displayLine[error=&quot;true&quot;] {
+    color: #d71919;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+QPushButton {
+    background: #fbfcff;
+    border: 1px solid #dfe5ef;
+    border-radius: 8px;
+    color: #0a0f1c;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+QPushButton:hover {
+    background: #ffffff;
+    border-color: #cfd8e8;
+}
+
+QPushButton:pressed {
+    background: #eef3fb;
+    border-color: #bac7dc;
+}
+
+QPushButton#btnSqrt,
+QPushButton#btnReciprocal,
+QPushButton#btnSin,
+QPushButton#btnCos,
+QPushButton#btnTg,
+QPushButton#btnCtg {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+QPushButton#btnDiv,
+QPushButton#btnMul,
+QPushButton#btnMinus {
+    background: #e8f2ff;
+    border-color: #c7dbf5;
+    color: #1164e8;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+QPushButton#btnDiv:hover,
+QPushButton#btnMul:hover,
+QPushButton#btnMinus:hover {
+    background: #dcecff;
+}
+
+QPushButton#btnDel {
+    background: #e2e6ee;
+    border-color: #cfd5df;
+    color: #1c2535;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+QPushButton#btnClear,
+QPushButton#btnPlus,
+QPushButton#btnEqual {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #3b8cff, stop:1 #1268f3);
+    border-color: #1268f3;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+QPushButton#btnClear {
+    font-size: 16px;
+}
+
+QPushButton#btnEqual {
+    font-size: 24px;
+}
+
+QPushButton#btnClear:hover,
+QPushButton#btnPlus:hover,
+QPushButton#btnEqual:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4a95ff, stop:1 #1d72fb);
+}
+
+QPushButton#btnClear:pressed,
+QPushButton#btnPlus:pressed,
+QPushButton#btnEqual:pressed {
+    background: #0f5fe0;
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="centralLayout">
@@ -46,8 +178,8 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>358</width>
-        <height>568</height>
+        <width>340</width>
+        <height>550</height>
        </size>
       </property>
       <property name="frameShape">
@@ -189,7 +321,7 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>48</width>
+              <width>44</width>
               <height>44</height>
              </size>
             </property>
@@ -208,7 +340,7 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>48</width>
+              <width>44</width>
               <height>44</height>
              </size>
             </property>
@@ -227,7 +359,7 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>48</width>
+              <width>44</width>
               <height>44</height>
              </size>
             </property>
@@ -246,7 +378,7 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>48</width>
+              <width>44</width>
               <height>44</height>
              </size>
             </property>
@@ -265,7 +397,7 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>48</width>
+              <width>44</width>
               <height>44</height>
              </size>
             </property>
@@ -284,7 +416,7 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>48</width>
+              <width>44</width>
               <height>44</height>
              </size>
             </property>
