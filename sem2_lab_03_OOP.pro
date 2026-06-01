@@ -19,11 +19,14 @@ SOURCES += \
     mainwindow.cpp \
     multiplicationOperation.cpp \
     operation.cpp \
+    operationRegistry.cpp \
     reciprocalOperation.cpp \
     sinOperation.cpp \
     sqrtOperation.cpp \
     subtractionOperation.cpp \
     tgOperation.cpp \
+    token.cpp \
+    tokenizer.cpp \
     unaryOperation.cpp
 
 HEADERS += \
@@ -36,11 +39,14 @@ HEADERS += \
     mainwindow.h \
     multiplicationOperation.h \
     operation.h \
+    operationRegistry.h \
     reciprocalOperation.h \
     sinOperation.h \
     sqrtOperation.h \
     subtractionOperation.h \
     tgOperation.h \
+    token.h \
+    tokenizer.h \
     unaryOperation.h
 
 FORMS += \
