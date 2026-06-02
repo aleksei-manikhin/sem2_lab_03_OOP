@@ -21,7 +21,7 @@ void CalculatorLogic::calculate() {
 }
 
 void CalculatorLogic::applyFunction(const std::string& functionName) {
-    std::string expression = buildFunctionExpression(functionName);
+    std::string expression = builder.buildExpressionWithFunctionOnLastOperand(functionName);
     double result = evaluator.evaluate(expression);
 
     setCalculatedResult(result);
@@ -37,10 +37,6 @@ std::string CalculatorLogic::getExpression() const {
 
 std::string CalculatorLogic::getDisplayText() const {
     return builder.getDisplayText();
-}
-
-std::string CalculatorLogic::buildFunctionExpression(const std::string& functionName) const {
-    return functionName + "(" + currentExpressionOrZero() + ")";
 }
 
 std::string CalculatorLogic::currentExpressionOrZero() const {

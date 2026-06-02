@@ -24,7 +24,6 @@ private:
     ExpressionBuilder builder;
     ExpressionEvaluator evaluator;
 
-    std::string buildFunctionExpression(const std::string& functionName) const;
     std::string currentExpressionOrZero() const;
     std::string formatResult(double value) const;
     void setCalculatedResult(double value);

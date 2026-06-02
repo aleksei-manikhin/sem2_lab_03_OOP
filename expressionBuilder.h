@@ -12,6 +12,7 @@ public:
     void changeSign();
 
     std::string getExpression() const;
+    std::string buildExpressionWithFunctionOnLastOperand(const std::string& functionName) const;
     std::string getDisplayText() const;
     bool isResultShown() const;
 
