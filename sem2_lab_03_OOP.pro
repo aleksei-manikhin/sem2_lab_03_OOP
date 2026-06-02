@@ -22,6 +22,7 @@ SOURCES += \
     facadeOperationResult.cpp \
     main.cpp \
     mainwindow.cpp \
+    numberFormatter.cpp \
     operations/multiplicationOperation.cpp \
     operations/operation.cpp \
     operations/operationRegistry.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     expressionEvaluator.h \
     facadeOperationResult.h \
     mainwindow.h \
+    numberFormatter.h \
     operations/multiplicationOperation.h \
     operations/operation.h \
     operations/operationRegistry.h \

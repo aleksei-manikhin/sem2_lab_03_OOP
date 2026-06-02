@@ -1,15 +1,44 @@
 #include "expressionBuilder.h"
+#include "numberFormatter.h"
 
 #include <cctype>
 
 namespace {
-bool isNumberCharacter(char symbol) {
+bool isDigitOrDot(char symbol) {
     return std::isdigit(static_cast<unsigned char>(symbol)) || symbol == '.';
+}
+
+bool isExponentSymbol(char symbol) {
+    return symbol == 'e' || symbol == 'E';
 }
 
 bool isOperatorOrLeftParenthesis(char symbol) {
     return symbol == '+' || symbol == '-' || symbol == '*'
            || symbol == '/' || symbol == '(';
+}
+
+size_t findLastNumberStart(const std::string& expression) {
+    size_t start = expression.size();
+
+    while (start > 0 && isDigitOrDot(expression[start - 1])) {
+        --start;
+    }
+
+    if (start == expression.size()) {
+        return start;
+    }
+
+    if (start > 1
+        && (expression[start - 1] == '+' || expression[start - 1] == '-')
+        && isExponentSymbol(expression[start - 2])) {
+        start -= 2;
+
+        while (start > 0 && isDigitOrDot(expression[start - 1])) {
+            --start;
+        }
+    }
+
+    return start;
 }
 }
 
@@ -40,11 +69,7 @@ void ExpressionBuilder::setResult(const std::string& value) {
 }
 
 void ExpressionBuilder::changeSign() {
-    size_t start = expression.size();
-
-    while (start > 0 && isNumberCharacter(expression[start - 1])) {
-        --start;
-    }
+    size_t start = findLastNumberStart(expression);
 
     if (start == expression.size()) {
         return;
@@ -65,11 +90,7 @@ std::string ExpressionBuilder::getExpression() const {
 }
 
 std::string ExpressionBuilder::getDisplayText() const {
-    if (expression.empty()) {
-        return "0";
-    }
-
-    return expression;
+    return NumberFormatter::formatExpressionForDisplay(expression);
 }
 
 bool ExpressionBuilder::isResultShown() const {

@@ -65,8 +65,12 @@ bool Tokenizer::isSpecialUnaryStart(const std::string& expression, size_t positi
     return expression.compare(position, 3, "1/x") == 0;
 }
 
-bool Tokenizer::isNumberCharacter(char symbol) const {
+bool Tokenizer::isMantissaCharacter(char symbol) const {
     return std::isdigit(static_cast<unsigned char>(symbol)) || symbol == '.';
+}
+
+bool Tokenizer::isExponentSymbol(char symbol) const {
+    return symbol == 'e' || symbol == 'E';
 }
 
 Token Tokenizer::readNumber(const std::string& expression, size_t& position) const {
@@ -78,7 +82,7 @@ Token Tokenizer::readNumber(const std::string& expression, size_t& position) con
         ++position;
     }
 
-    while (position < expression.size() && isNumberCharacter(expression[position])) {
+    while (position < expression.size() && isMantissaCharacter(expression[position])) {
         char current = expression[position];
 
         if (current == '.') {
@@ -95,6 +99,27 @@ Token Tokenizer::readNumber(const std::string& expression, size_t& position) con
 
     if (!hasDigit) {
         throw std::runtime_error("Invalid number format");
+    }
+
+    if (position < expression.size() && isExponentSymbol(expression[position])) {
+        ++position;
+
+        if (position < expression.size()
+            && (expression[position] == '+' || expression[position] == '-')) {
+            ++position;
+        }
+
+        bool hasExponentDigit = false;
+
+        while (position < expression.size()
+               && std::isdigit(static_cast<unsigned char>(expression[position]))) {
+            hasExponentDigit = true;
+            ++position;
+        }
+
+        if (!hasExponentDigit) {
+            throw std::runtime_error("Invalid number format");
+        }
     }
 
     return Token(TokenType::NUMBER, expression.substr(start, position - start));

@@ -1,4 +1,5 @@
 #include "calculatorLogic.h"
+#include "numberFormatter.h"
 
 #include <cmath>
 
@@ -53,21 +54,7 @@ std::string CalculatorLogic::currentExpressionOrZero() const {
 }
 
 std::string CalculatorLogic::formatResult(double value) const {
-    if (std::abs(value) < eps) {
-        value = 0;
-    }
-
-    std::string result = std::to_string(value);
-
-    while (result.find('.') != std::string::npos && result.back() == '0') {
-        result.pop_back();
-    }
-
-    if (result.back() == '.') {
-        result.pop_back();
-    }
-
-    return result;
+    return NumberFormatter::formatResult(value);
 }
 
 void CalculatorLogic::setCalculatedResult(double value) {

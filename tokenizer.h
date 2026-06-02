@@ -20,7 +20,8 @@ private:
     bool isNegativeNumberStart(const std::string& expression, size_t position) const;
     bool canStartNegativeNumber(const std::vector<Token>& tokens) const;
     bool isSpecialUnaryStart(const std::string& expression, size_t position) const;
-    bool isNumberCharacter(char symbol) const;
+    bool isMantissaCharacter(char symbol) const;
+    bool isExponentSymbol(char symbol) const;
 
     Token readNumber(const std::string& expression, size_t& position) const;
     Token readWordOperation(const std::string& expression,
